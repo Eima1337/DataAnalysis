@@ -12,15 +12,25 @@ extra_seconds = random.randint(0, 300)
 # print(f"Pradinis laikrodis {start_time.time()}")
 # print(f"Laikrodis su pridetomis sekundemis {new_time.time()}")
 
-if (seconds + extra_seconds) > 59:
-    if (minutes + extra_minutes) > 59:
-        if (hours + extra_hours) > 23:
+print(f"Start time: {hours:02d}:{minutes:02d}:{minutes:02d}")
+print(f"Added seconds: {extra_seconds}")
 
-            if (extra_seconds / 60) >= 1:
-                if (extra_seconds % 60) >= 1:
-                    extra_minutes = (round(extra_seconds / 60))
-                    seconds = seconds + (extra_seconds % 60)
+seconds += extra_seconds
 
-            print(f"{extra_seconds}, {extra_minutes}")
+if seconds >= 60:
+    added_minutes = seconds // 60
+    seconds = seconds % 60
+    minutes += added_minutes
+
+if minutes >= 60:
+    added_hours = minutes // 60
+    minutes = minutes % 60
+    hours += added_hours
+
+if hours >= 24:
+    hours = hours % 24
+
+print(f"New time: {hours:02d}:{minutes:02d}:{seconds:02d}")
+
 
 
