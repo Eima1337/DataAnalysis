@@ -55,6 +55,7 @@ print("----------------7 uzduotis----------------")
 
 starWars = "Star Wars: Episode " + (" " * random.randint(1, 9)) + str(random.randint(1, 7)) + " - A New Hope"
 number_in_string = re.findall(r"\d+", starWars)
+print(starWars)
 print(number_in_string[0])
 
 print("----------------7 uzduotis----------------")
