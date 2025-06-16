@@ -190,6 +190,108 @@ while h_in_a_row < 3:
 
 
 print("----------------5 uzduotis----------------")
+print("----------------6 uzduotis----------------")
+
+petras_total = 0
+kazys_total = 0
+
+while True:
+    petras_points = random.randint(10, 20)
+    kazys_points = random.randint(5, 25)
+    petras_total = petras_total + petras_points
+    kazys_total = kazys_total + kazys_points
+    if petras_total >= 222 or kazys_total >= 222:
+        break
+
+if petras_total > kazys_total:
+    print(f"Partija laimejo Petras, jo taskai: {petras_total}, pralaimejo Kazys, jo taskai: {kazys_total}")
+elif petras_total < kazys_total:
+    print(f"Partija laimejo Kazys, jo taskai: {kazys_total}, pralaimejo Petras, jo taskai: {petras_total}")
+else:
+    print(f"LYGIOSIOS. Petro taskai: {petras_total}, Kazio taskai: {kazys_total}")
+
+print("----------------6 uzduotis----------------")
+print("----------------7 uzduotis----------------")
+
+height = 21
+mid = height // 2
+
+for i in range(height):
+    if i <= mid:
+        #Skaiciuoju kiek eiluteje zvaigzduciu iki vidurines eilutes (iskaitant vidurine)
+        stars = 2 * i + 1
+    else:
+        #Skaiciuoju kiek eiluteje zvaigzduciu po vidurines eilutes
+        stars = 2 * (height - i - 1) + 1
+    #skaiciuoju tarpu skaiciu pries zvaigzdutes
+    spaces = (height - stars) // 2
+    print(" " * spaces + "*" * stars)
+
+print("----------------7 uzduotis----------------")
+print("----------------8 uzduotis----------------")
+
+vinis = 850
+mazu_kalimu_skaicius = 0
+dideliu_kalimu_skaicius = 0
+
+while True:
+    mazas_smugis = random.randint(5, 20)
+    vinis = vinis - mazas_smugis
+    mazu_kalimu_skaicius += 1
+    if vinis <= 0:
+        print(f"\nMazu kalimu skaicius: {mazu_kalimu_skaicius}")
+        break
+
+vinis = 850
+
+while True:
+    didelis_smugis = random.randint(20, 30)
+    ikalimo_tikimybe = random.randint(0, 1)
+    if ikalimo_tikimybe > 0:
+        vinis = vinis - didelis_smugis
+        dideliu_kalimu_skaicius += 1
+    if vinis <= 0:
+        print(f"\nDideliu kalimu skaicius: {dideliu_kalimu_skaicius}")
+        break
+
+print("----------------8 uzduotis----------------")
+print("----------------9 uzduotis----------------")
+
+num_list = []
+num_string1 = ""
+prime_list = []
+num_string2 = ""
+while len(num_list) < 50:
+    random_number = random.randint(1,200)
+    if random_number not in num_list:
+        num_list.append(random_number)
+
+num_list.sort()
+
+for number in num_list:
+    num_string1 += str(number) + " "
+
+for number in num_list:
+    if number < 2:
+        continue
+    is_prime = True
+    for i in range(2, int(number**0.5) + 1):
+        if number % i == 0:
+            is_prime = False
+            break
+    if is_prime:
+        prime_list.append(number)
+
+prime_list.sort()
+
+for number in prime_list:
+    num_string2 += str(number) + " "
+
+print(f"Skaicius {3**0.5}")
+print(f"50 Unikaliu skaiciu: {num_string1}")
+print(f"Pirminiai skaiciai: {num_string2}")
+
+print("----------------9 uzduotis----------------")
 
 
 
