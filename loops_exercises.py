@@ -287,7 +287,6 @@ prime_list.sort()
 for number in prime_list:
     num_string2 += str(number) + " "
 
-print(f"Skaicius {3**0.5}")
 print(f"50 Unikaliu skaiciu: {num_string1}")
 print(f"Pirminiai skaiciai: {num_string2}")
 
