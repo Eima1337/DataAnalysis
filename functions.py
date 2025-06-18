@@ -156,5 +156,20 @@ def division(number):
     return count
 
 
-print(division(33))
+print(division(16))
 print("----------------4 uzduotis----------------")
+
+arr2 = rand_array(33, 77, 100)
+
+
+def sorting_by_division(array):
+    return sorted(array, key=lambda x: (-division(x), x))
+
+
+print(sorting_by_division(arr2))
+# sorted_arr2 = sorting_by_division(arr2)
+# for number in sorted_arr2:
+#     print(f"{number} (dalikliu skaicius: {division(number)}")
+print("----------------5 uzduotis----------------")
+
+
