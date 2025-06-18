@@ -230,7 +230,7 @@ for i in range(height):
 print("----------------7 uzduotis----------------")
 print("----------------8 uzduotis----------------")
 
-vinis = 850
+vinis = 85
 mazu_kalimu_skaicius = 0
 dideliu_kalimu_skaicius = 0
 
@@ -242,7 +242,7 @@ while True:
         print(f"\nMazu kalimu skaicius: {mazu_kalimu_skaicius}")
         break
 
-vinis = 850
+vinis = 85
 
 while True:
     didelis_smugis = random.randint(20, 30)
