@@ -1,4 +1,5 @@
 import random
+
 print("----------------1 uzduotis----------------")
 
 
@@ -103,3 +104,57 @@ def reversed_string(string):
 
 
 print(reversed_string(str1))
+
+print("------------ Sunkesnes uzduotys-----------")
+print("----------------1 uzduotis----------------")
+
+
+def weird_string(text):
+    print("---" + text + "---")
+
+
+weird_string("aha")
+print("----------------2 uzduotis----------------")
+
+
+def password_generator(length):
+    symbols = "0123456789ABCDEFGHIJKLMNOQRSTUVWXYZ"
+    text = ""
+    for i in range(length):
+        random_symbol = random.choice(symbols)
+        text += random_symbol
+    return text
+
+
+# print(password_generator(10))
+password = password_generator(10)
+print(password)
+
+
+def password_printer(text):
+    i = 0
+    while i < len(text):
+        if text[i].isdigit():
+            start = i
+            while i < len(text) and text[i].isdigit():
+                i += 1
+            print(f"[{text[start:i]}]")
+        else:
+            print(text[i])
+            i += 1
+
+
+password_printer(password)
+print("----------------3 uzduotis----------------")
+
+
+def division(number):
+    count = 0
+    for i in range(2, number):
+        if number % i == 0:
+            count += 1
+    return count
+
+
+print(division(33))
+print("----------------4 uzduotis----------------")
