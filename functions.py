@@ -172,4 +172,24 @@ print(sorting_by_division(arr2))
 #     print(f"{number} (dalikliu skaicius: {division(number)}")
 print("----------------5 uzduotis----------------")
 
+arr3 = rand_array(333, 777, 100)
 
+
+def is_prime(array):
+    count = 0
+    for number in array:
+        if number < 2:
+            continue
+        prime = True
+        for i in range(2, int(number**0.5) + 1):
+            if number % i == 0:
+                prime = False
+                break
+        if prime:
+            count += 1
+    return count
+
+
+print(arr3)
+print(is_prime(arr3))
+print("----------------6 uzduotis----------------")
