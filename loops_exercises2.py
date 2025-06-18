@@ -179,64 +179,15 @@ print(crazy_ints)
 
 print("----------------10 uzduotis----------------")
 
-max_diff = 30
-listas = []
-
-while len(listas) < 101:
-    number = random.randint(0, 300)
-    if number not in listas:
-        listas.append(number)
-
-listas.sort(reverse=True)
-result = [0] * 101
-center_index = len(listas) // 2
-result[center_index] = listas[0]
-left = center_index - 1
-right = center_index + 1
-index = 1
-
-while index < len(listas):
-    if right < len(result):
-        result[right] = listas[index]
-        index += 1
-        right += 1
-    if index < len(listas) and left >= 0:
-        result[left] = listas[index]
-        index += 1
-        left -= 1
-sum_left = sum(result[:center_index])
-sum_right = sum(result[center_index:])
-
-print(sum_left)
-print(sum_right)
-print(abs(sum_left - sum_right))
-print(result)
-
-# while True:
-#     listas.sort(reverse=True)
-#     result = [0] * 101
-#     center_index = len(result) // 2
-#     result[center_index] = listas[0]
-#     left = center_index - 1
-#     right = center_index + 1
-#     index = 1
-#     sum_left = sum(result[:center_index])
-#     sum_right = sum(result[center_index:])
-#     if abs(sum_left - sum_right) >= 30:
-#         while index < len(listas):
-#             if right < len(result):
-#                 result[right] = listas[index]
-#                 index += 1
-#                 right += 1
-#             if index < len(listas) and left >= 0:
-#                 result[left] = listas[index]
-#                 index += 1
-#                 left -= 1
-#     else:
-#         break
-
-print(result)
-
+# max_diff = 30
+# listas = []
+#
+# while len(listas) < 101:
+#     number = random.randint(0, 300)
+#     if number not in listas:
+#         listas.append(number)
+#
+#
 # print(listas)
 # listas.sort()
 # max_value = listas.pop()
@@ -244,38 +195,27 @@ print(result)
 # left = listas[:center_index]
 # right = listas[center_index:][::-1]
 # print(left + [max_value] + right)
-#
-# while True:
-#     listas.sort()
-#     max_value = listas.pop()
-#     center_index = len(listas) // 2
-#     left = listas[:center_index]
-#     right = listas[center_index:][::-1]
-#     if left[-1] < max_value and right[-1] < max_value:
-#         sum_left = sum(left)
-#         sum_right = sum(right)
-#         if abs(sum_left - sum_right) <= 30:
-#             break
-#
-# print(left + [max_value] + right)
 
-# print(listas)
-# print(sorted(listas))
-#
-# listas.sort()
-# max_value = listas.pop()
-# # print(max_value)
-# left = listas[:50]
-# right = listas[50:][::-1]
-#
-# sum_left = sum(left)
-# sum_right = sum(right)
-# print(f"Skirtumas {abs(sum_left - sum_right)}")
-#
-#
-# # print(sum(left))
-# # print(sum(right))
-# print(left + [max_value] + right)
+while True:
+    array = []
+    while len(array) < 101:
+        number = random.randint(0, 300)
+        if number not in array:
+            array.append(number)
+
+    center_index = len(array) // 2
+    max_value = max(array)
+    array.remove(max_value)
+    left = array[:center_index]
+    right = array[center_index:]
+    sorted_array = sorted(left) + [max_value] + sorted(right)
+    sum_left = sum(left)
+    sum_right = sum(right)
+    if abs(sum_left - sum_right) <= 30:
+        break
+
+print(sorted_array)
+
 
 
 
