@@ -76,13 +76,14 @@ print("----------------9 uzduotis----------------")
 
 
 def rectangle(length=0, width=0):
-    print(("*" * length + "\n") * width, end="")
-    # for i in range(length):
-    #     line = "*" * width
-    #     print(line)
+    # print(("*" * length + "\n") * width, end="")
+    for i in range(length):
+        for j in range(width):
+            print("*", end=" ")
+        print()
 
 
-rectangle(5, 5)
+rectangle(6, 5)
 print("----------------10 uzduotis----------------")
 
 
@@ -175,7 +176,7 @@ print("----------------5 uzduotis----------------")
 arr3 = rand_array(333, 777, 100)
 
 
-def is_prime(array):
+def prime_count(array):
     count = 0
     for number in array:
         if number < 2:
@@ -191,5 +192,92 @@ def is_prime(array):
 
 
 print(arr3)
-print(is_prime(arr3))
+print(prime_count(arr3))
 print("----------------6 uzduotis----------------")
+
+
+def random_array_generator():
+    def generate_array(depth):
+        if depth == 0:
+            return 0
+        length = random.randint(10, 20)
+        arr = [random.randint(0, 10) for _ in range(length - 1)]
+        arr.append(generate_array(depth - 1))
+        return arr
+
+    depth = random.randint(10, 30)
+    return generate_array(depth)
+
+
+result = random_array_generator()
+print(result)
+print("----------------7 uzduotis----------------")
+
+
+def sum_elements(arr):
+    if isinstance(arr, int):
+        return arr
+    elif isinstance(arr, list):
+        return sum(sum_elements(item) for item in arr)
+    return 0
+
+
+print(sum_elements(result))
+print("----------------8 uzduotis----------------")
+
+
+def generate_array():
+    arr = [random.randint(1, 33) for _ in range(3)]
+    while prime_count(arr[-3:]) != 3:
+        arr.append(random.randint(1, 33))
+    return arr
+
+
+prime_array = generate_array()
+print(prime_array)
+
+print("----------------9 uzduotis----------------")
+
+
+def generate_matrix_with_prime_average():
+    def is_prime(n):
+        if n < 2:
+            return False
+        for i in range(2, int(n**0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+
+    while True:
+        matrix = []
+        for _ in range(10):
+            row = [random.randint(1, 100) for _ in range(10)]
+            matrix.append(row)
+        while True:
+            prime_numbers = []
+            for row in matrix:
+                for num in row:
+                    if is_prime(num):
+                        prime_numbers.append(num)
+            if len(prime_numbers) > 0:
+                average = sum(prime_numbers) / len(prime_numbers)
+                print(f"Average primes: {average}")
+            else:
+                average = 0
+
+            if average >= 70:
+                return matrix
+
+            smallest = matrix[0][0]
+            smallest_row = 0
+            smallest_col = 0
+            for i in range(10):
+                for j in range(10):
+                    if matrix[i][j] < smallest:
+                        smallest = matrix[i][j]
+                        smallest_row = i
+                        smallest_col = j
+            matrix[smallest_row][smallest_col] += 3
+
+
+print(generate_matrix_with_prime_average())
