@@ -106,6 +106,142 @@ def reversed_string(string):
 
 print(reversed_string(str1))
 
+print("----------------12 uzduotis----------------")
+
+# print(str1.split(" "))
+
+
+def reversed_words_in_string(string):
+    temp_arr = string.split(" ")
+    arr = []
+    for word in temp_arr:
+        new_word = word[::-1]
+        arr.append(new_word)
+    new_str = " ".join(str(word) for word in arr)
+    return new_str
+
+
+print(reversed_words_in_string(str1))
+print("----------------13 uzduotis----------------")
+
+
+def number_in_array(array):
+    for element in array:
+        if str(element).isdigit():
+            print(element)
+
+
+test_arr = ["tu", "as", 3, 5, "10", "11", 3.25, 4.75, "10.25"]
+number_in_array(test_arr)
+
+
+print("----------------14 uzduotis----------------")
+
+
+def print_numbers_in_array(array, boolean):
+    if boolean:
+        for element in array:
+            if type(element) is int:
+                print(element)
+    else:
+        for element in array:
+            if type(element) is float:
+                print(element)
+
+
+print_numbers_in_array(test_arr, False)
+print("----------------15 uzduotis----------------")
+
+
+def word_count(string):
+    array = string.split(" ")
+    return len(array)
+
+
+print(word_count(str1))
+print("----------------16 uzduotis----------------")
+
+
+def filtered_array(array, boolean):
+    temp_arr = []
+    if boolean:
+        for n in array:
+            if n % 2 == 0:
+                temp_arr.append(n)
+    else:
+        for n in array:
+            if n % 2 != 0:
+                temp_arr.append(n)
+    return temp_arr
+
+
+numbers = [1, 2, 5, 7, 19, 20, 30, 5, 3, 2, 7, 5, 19, 33, 5]
+print(filtered_array(numbers, False))
+print("----------------17 uzduotis----------------")
+
+
+def number_is_prime(number):
+    if number <= 1:
+        return False
+    else:
+        prime = True
+        for i in range(2, int((number**0.5)) + 1):
+            if number % i == 0:
+                prime = False
+        return prime
+
+
+print(number_is_prime(4))
+print("----------------18 uzduotis----------------")
+
+
+def random_laipsnis(n1, n2):
+    return n1 ** n2
+
+
+print(random_laipsnis(2, 3))
+print("----------------19 uzduotis----------------")
+
+
+def unique_array(array):
+    temp_arr = []
+    for n in array:
+        if n not in temp_arr:
+            temp_arr.append(n)
+    return temp_arr
+
+
+print(unique_array(numbers))
+print("----------------20 uzduotis----------------")
+
+
+def symbol_occurrence(string):
+    symbols = {}
+    for symbol in string:
+        if symbol in symbols:
+            symbols[symbol] += 1
+        else:
+            symbols[symbol] = 1
+    max_occurrence = max(symbols, key=symbols.get)
+    return print(max_occurrence)
+
+
+str2 = "labas vakaras lietuva"
+symbol_occurrence(str2)
+
+print("----------------21 uzduotis----------------")
+
+
+def longest_word(string):
+    words = string.split()
+    longest = ""
+    for word in words:
+        if len(word) > len(longest):
+            longest = word
+    print(longest)
+
+
+longest_word(str1)
 print("------------ Sunkesnes uzduotys-----------")
 print("----------------1 uzduotis----------------")
 
@@ -261,7 +397,6 @@ def generate_matrix_with_prime_average():
                         prime_numbers.append(num)
             if len(prime_numbers) > 0:
                 average = sum(prime_numbers) / len(prime_numbers)
-                print(f"Average primes: {average}")
             else:
                 average = 0
 
